@@ -25,4 +25,31 @@ public class HelloStep {
     public void i_should_see_the_account_details() {
         System.out.println("CALLED");
     }
+
+    @Then("I should introduce myself as {string}")
+    public void i_should_introduce_myself_as(String name) {
+        System.out.println("my name is " + name);
+    }
+
+    @Then("My cats name is {string}")
+    public void my_cats_name_is(String catsName) {
+        System.out.println("Kedimin ismi " + catsName);
+    }
+
+    @When("My age is {int}")
+    public void my_age_is(Integer age) {
+        System.out.println("Your age is " + age);
+    }
+
+    @Then("System says you are too old")
+    public void system_says_you_are_too_old() {
+        System.out.println("You are too old !!!");
+    }
+
+    @When("My cats name is {string} and its age is {int}")
+    public void my_cats_name_is_and_its_age_is(String name, Integer age) {
+        System.out.println("My cats name is " + name + "and its age is " + age);
+    }
+
+
 }
