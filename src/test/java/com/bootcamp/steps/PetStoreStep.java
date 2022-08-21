@@ -26,7 +26,7 @@ public class PetStoreStep {
     public void i_make_a_get_request_for_finding_pet_with_id(Integer petID) {
         Response response = RestAssured.given().baseUri(petStoreURI)
                 .get("/pet/" + petID + "/")
-                .then().extract().response();
+                .then().statusCode(200).extract().response();
         System.out.println(response.body().asString());
     }
 
