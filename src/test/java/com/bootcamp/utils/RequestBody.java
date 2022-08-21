@@ -6,8 +6,8 @@ import org.json.JSONObject;
 public class RequestBody {
     public JSONObject userRequestBody() {
         JSONObject userRequest = new JSONObject();
-        userRequest.put("id", 1000);
-        userRequest.put("username", "userzero");
+        userRequest.put("id", 1010);
+        userRequest.put("username", "userBostonCodersLand");
         userRequest.put("firstName", "user");
         userRequest.put("lastName", "zero");
         userRequest.put("email", "user@zero.com");

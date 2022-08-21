@@ -11,5 +11,9 @@ Feature:Pet Store API Regression Tests
     Examples:
       | petID |
       | 1000  |
-      | 1004  |
-      | 1005  |
+      | 1000  |
+      | 1000  |
+
+    Scenario: Create New User
+      When I make a new post request to user module
+      Then I should see new user is created

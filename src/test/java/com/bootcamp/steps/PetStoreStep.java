@@ -4,10 +4,15 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import com.bootcamp.utils.RequestBody;
+import org.hamcrest.Matcher;
+import org.hamcrest.Matchers;
 
 public class PetStoreStep {
 
     public static final String petStoreURI = "https://petstore.swagger.io/v2";
+    private static RequestBody requestBody = new RequestBody();
+    private String responseUserName;
 
     @When("I make a get request to user module")
     public void i_make_a_get_request_to_user_module() {
@@ -30,4 +35,19 @@ public class PetStoreStep {
         System.out.println(response.body().asString());
     }
 
+    @When("I make a new post request to user module")
+    public void i_make_a_new_post_request_to_user_module() {
+        RestAssured.given().baseUri(petStoreURI)
+                .contentType("application/json")
+                .body(requestBody.userRequestBody().toString()).post("/user")
+                .then().statusCode(200);
+    }
+
+    @Then("I should see new user is created")
+    public void i_should_see_new_user_is_created() {
+        String expectedUserName = requestBody.userRequestBody().get("username").toString();
+        System.out.println(expectedUserName + "###########");
+        RestAssured.given().baseUri(petStoreURI)
+                .get("/user/" + expectedUserName).then().body("phone", Matchers.equalTo("+905426928600"));
+    }
 }
