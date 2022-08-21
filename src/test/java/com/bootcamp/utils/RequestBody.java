@@ -17,4 +17,11 @@ public class RequestBody {
         return userRequest;
     }
 
+    public JSONObject orderRequestBody() {
+        JSONObject orderRequestBody = new JSONObject();
+        orderRequestBody.put("id", 1000);
+        orderRequestBody.put("petId", 1001);
+
+        return orderRequestBody;
+    }
 }

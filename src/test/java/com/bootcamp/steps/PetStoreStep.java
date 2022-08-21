@@ -48,6 +48,6 @@ public class PetStoreStep {
         String expectedUserName = requestBody.userRequestBody().get("username").toString();
         System.out.println(expectedUserName + "###########");
         RestAssured.given().baseUri(petStoreURI)
-                .get("/user/" + expectedUserName).then().body("phone", Matchers.equalTo("+905426928600"));
+                .get("/user/" + expectedUserName).then().body("phone", Matchers.equalTo(expectedUserName));
     }
 }
