@@ -14,6 +14,14 @@ Feature:Pet Store API Regression Tests
       | 1000  |
       | 1000  |
 
-    Scenario: Create New User
-      When I make a new post request to user module
-      Then I should see new user is created
+  Scenario: Create New User
+    When I make a new post request to user module
+    Then I should see new user is created
+
+  Scenario: User Operations
+    When I make a new post request to user module
+    Then I can receive user details
+    When I change the user name with "campUser"
+    Then I can receive changed user details
+    When I delete registered user
+    Then I should not receive user details for deleted user
